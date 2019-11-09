@@ -21,7 +21,7 @@ int main(void)
 
     while(1)
     {
-        PORTC ^= 1<<4;
+       // PORTC ^= 1<<4;
     }
 
 

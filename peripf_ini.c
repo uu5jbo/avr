@@ -14,9 +14,9 @@ void Reset()
 
 void timer_init(void)
 {
-    TCCR1B |= (1<<CS12)|(1<<CS10);  //Предделитель = 1024
-    TIMSK |= (1<<TOIE1);    //Разрешить прерывание по переполнению таймера 1
-    TCNT1 = 61630;          //Начальное значение таймера
+    TCCR1B |= (1<<CS12)|(1<<CS10);  //Prescaler = 1024
+    TIMSK  |= (1<<TOIE1);    //Allow interrupt on TCNT1 Overflow
+    TCNT1 = 61630;          //Initial timer amount
 
 }
 
@@ -26,4 +26,5 @@ ISR(TIMER1_OVF_vect)
 {
     keys = PIND;
     state = (~keys) & 0xe0;
+    PORTC ^= 1<<5;
 }
