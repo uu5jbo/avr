@@ -1,1 +1,2 @@
-# avr
+# avr projects
+Atmega8
